@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Seller Platform</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>HomePilot AI — Sell Direct. Keep the Commission.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursorTrail"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="#" class="logo">
+      <svg class="logo-hex" viewBox="0 0 40 46" fill="none">
+        <path d="M20 1L38 11.5V34.5L20 45L2 34.5V11.5L20 1Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M20 8L32 15V29L20 36L8 29V15L20 8Z" fill="currentColor" opacity="0.2"/>
+      </svg>
+      HomePilot<em>AI</em>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#ai-valuation">AI Valuation</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="nav-signin">Sign In</a>
+      <a href="#cta" class="nav-cta-btn">List Free →</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#how">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#ai-valuation">AI Valuation</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#cta" class="mob-cta">Start Listing Free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot-pulse"></span>
+      No Agent &nbsp;·&nbsp; No Commission &nbsp;·&nbsp; Full Control
+    </div>
+    <h1 class="hero-h1">
+      Sell Your Home<br/>
+      <span class="italic-gold">Directly.</span><br/>
+      AI Does the Rest.
+    </h1>
+    <p class="hero-p">Skip the 5–6% broker commission. Get AI-powered pricing, match with verified buyers, compare offers side-by-side, and close — all without a real estate agent.</p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-gold">Get AI Valuation Free</a>
+      <a href="#how" class="btn-outline">
+        <span class="play-wrap">
+          <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0l12 7-12 7V0z"/></svg>
+        </span>
+        See How It Works
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-num" data-count="18400" data-prefix="$" data-suffix="">$0</span>
+        <span>Avg. Saved Per Sale</span>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <span class="trust-num" data-count="92" data-prefix="" data-suffix="%">0%</span>
+        <span>AI Valuation Accuracy</span>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <span class="trust-num" data-count="14" data-prefix="" data-suffix=" Days">0 Days</span>
+        <span>Avg. Time to Offer</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <!-- Dashboard card -->
+    <div class="dash-card" id="dashCard">
+      <div class="dc-bar">
+        <div class="dc-dots"><span></span><span></span><span></span></div>
+        <span class="dc-title">Seller Dashboard</span>
+        <span class="dc-live"><span class="dc-live-dot"></span>Live</span>
+      </div>
+      <div class="dc-prop">
+        <div class="dc-prop-img">🏡</div>
+        <div class="dc-prop-info">
+          <strong>2847 Maple Grove Dr</strong>
+          <small>Austin, TX 78701</small>
+          <span class="badge-active">● Active</span>
+        </div>
+        <div class="dc-prop-views">
+          <strong id="viewCount">247</strong>
+          <small>views</small>
+        </div>
+      </div>
+      <div class="dc-ai">
+        <div class="dc-ai-head">
+          <span class="spark">✦</span> AI Valuation
+          <span class="dc-ai-updated">Updated today</span>
+        </div>
+        <div class="dc-ai-price" id="aiPrice">$548,000</div>
+        <div class="dc-ai-range">Range: $531K – $562K</div>
+        <div class="dc-progress">
+          <div class="dc-progress-fill" id="progressFill"></div>
+          <span>72% confidence</span>
+        </div>
+        <div class="dc-comps">Based on <strong>24</strong> nearby comps</div>
+      </div>
+      <div class="dc-offers-head">
+        <span>Incoming Offers</span>
+        <span class="offer-badge" id="offerBadge">2 New</span>
+      </div>
+      <div class="dc-offer" id="offer1">
+        <div class="offer-ava" style="background:#e8c96d;color:#0a0b0e;">JM</div>
+        <div class="offer-info">
+          <strong>James M.</strong>
+          <small>Pre-approved · All cash</small>
+        </div>
+        <div class="offer-amt top">$542,000</div>
+      </div>
+      <div class="dc-offer" id="offer2">
+        <div class="offer-ava" style="background:#6366f1;">SR</div>
+        <div class="offer-info">
+          <strong>Sarah R.</strong>
+          <small>Conventional · 20% down</small>
+        </div>
+        <div class="offer-amt">$535,500</div>
+      </div>
+      <div class="dc-offer" id="offer3" style="display:none;">
+        <div class="offer-ava" style="background:#059669;">TK</div>
+        <div class="offer-info">
+          <strong>Tom K.</strong>
+          <small>VA Loan · Pre-approved</small>
+        </div>
+        <div class="offer-amt">$540,000</div>
+      </div>
+      <div class="dc-actions">
+        <button class="dc-btn primary">Compare Offers</button>
+        <button class="dc-btn">Counter Offer</button>
+      </div>
+      <div class="dc-net">
+        Net Proceeds After Fees: <strong class="gold">$536,820</strong>
+      </div>
+    </div>
+    <!-- floating chips -->
+    <div class="chip c1"><span>🤖</span> AI wrote your listing!</div>
+    <div class="chip c2"><span>💰</span> Save $22K in fees</div>
+    <div class="chip c3"><span>🔔</span> 3 buyer matches</div>
+  </div>
+</section>
+
+<!-- MARQUEE LOGOS -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Zillow Data</span><span class="sep">◆</span>
+    <span>Redfin Comps</span><span class="sep">◆</span>
+    <span>MLS Integration</span><span class="sep">◆</span>
+    <span>ATTOM Data</span><span class="sep">◆</span>
+    <span>RentCast API</span><span class="sep">◆</span>
+    <span>Google Maps</span><span class="sep">◆</span>
+    <span>OpenAI Powered</span><span class="sep">◆</span>
+    <span>Zillow Data</span><span class="sep">◆</span>
+    <span>Redfin Comps</span><span class="sep">◆</span>
+    <span>MLS Integration</span><span class="sep">◆</span>
+    <span>ATTOM Data</span><span class="sep">◆</span>
+    <span>RentCast API</span><span class="sep">◆</span>
+    <span>Google Maps</span><span class="sep">◆</span>
+    <span>OpenAI Powered</span><span class="sep">◆</span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="eyebrow">Simple Process</div>
+    <h2 class="sec-title">From Listing to Closing<br/>in 4 Simple Steps</h2>
+    <div class="steps-grid">
+      <div class="step-card" data-num="01">
+        <div class="step-icon-wrap"><span>📍</span></div>
+        <h3>List Your Property</h3>
+        <p>Enter your address, upload photos, and set your asking price. Our AI instantly generates a professional listing description that attracts serious buyers.</p>
+        <div class="step-tag">~10 minutes to go live</div>
+        <div class="step-arrow-right">→</div>
+      </div>
+      <div class="step-card" data-num="02">
+        <div class="step-icon-wrap"><span>🧠</span></div>
+        <h3>Get AI Valuation</h3>
+        <p>Our engine analyzes Zillow, Redfin, MLS data, and 24+ nearby comps to recommend the perfect listing price. Know your number before you commit.</p>
+        <div class="step-tag">Instant results</div>
+        <div class="step-arrow-right">→</div>
+      </div>
+      <div class="step-card" data-num="03">
+        <div class="step-icon-wrap"><span>🎯</span></div>
+        <h3>Match with Buyers</h3>
+        <p>Qualified buyers are automatically matched to your listing based on location, budget, school district preferences, and investment ROI requirements.</p>
+        <div class="step-tag">Auto-matched daily</div>
+        <div class="step-arrow-right">→</div>
+      </div>
+      <div class="step-card" data-num="04">
+        <div class="step-icon-wrap"><span>🏆</span></div>
+        <h3>Compare &amp; Close</h3>
+        <p>Review all offers side-by-side with net proceeds calculated automatically. Counter, accept, and close your transaction on your terms.</p>
+        <div class="step-tag">You're always in control</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="eyebrow">Core Features</div>
+    <h2 class="sec-title">Everything You Need<br/>Without an Agent</h2>
+    <div class="feat-bento">
+
+      <div class="bento-card bento-wide">
+        <div class="bento-icon">🏠</div>
+        <h3>Seller Dashboard</h3>
+        <p>Your command center. Manage listing, photos, price, and status — Active, Pending, or Sold — all from one sleek interface.</p>
+        <div class="bento-feat-list">
+          <span>✓ Photo upload &amp; ordering</span>
+          <span>✓ Price management</span>
+          <span>✓ Real-time view analytics</span>
+          <span>✓ Buyer inquiry inbox</span>
+        </div>
+        <div class="bento-dash-mini">
+          <div class="bdm-row"><span>Views Today</span><strong>247</strong><div class="bmini-bar"><div style="width:82%"></div></div></div>
+          <div class="bdm-row"><span>Saved</span><strong>38</strong><div class="bmini-bar"><div style="width:45%"></div></div></div>
+          <div class="bdm-row"><span>Inquiries</span><strong>12</strong><div class="bmini-bar"><div style="width:28%"></div></div></div>
+          <div class="bdm-row"><span>Offers</span><strong>3</strong><div class="bmini-bar"><div style="width:15%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="bento-card bento-ai">
+        <div class="bento-icon">🧠</div>
+        <h3>AI Home Valuation</h3>
+        <p>Zestimate-level accuracy powered by live MLS, Zillow, and Redfin data. Updated every 24 hours.</p>
+        <div class="bento-feat-list">
+          <span>✓ 92% accuracy rate</span>
+          <span>✓ Days-on-market forecast</span>
+          <span>✓ 30-day price trajectory</span>
+          <span>✓ Comparable sales map</span>
+        </div>
+        <div class="ai-pill-row">
+          <span class="ai-pill">Zillow</span>
+          <span class="ai-pill">Redfin</span>
+          <span class="ai-pill">MLS</span>
+          <span class="ai-pill">ATTOM</span>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-icon">🎯</div>
+        <h3>Buyer Matching</h3>
+        <p>Buyers set criteria. Our algorithm surfaces your listing to exactly the right audience — automatically.</p>
+        <div class="bento-feat-list">
+          <span>✓ Location &amp; budget</span>
+          <span>✓ School district scoring</span>
+          <span>✓ ROI calculator</span>
+          <span>✓ Pre-approval check</span>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-icon">📊</div>
+        <h3>Offer Comparison</h3>
+        <p>Side-by-side offer comparison with net proceeds automatically calculated after all closing costs.</p>
+        <div class="bento-feat-list">
+          <span>✓ Multi-offer view</span>
+          <span>✓ Net proceeds calc</span>
+          <span>✓ Counter-offer tools</span>
+          <span>✓ Contingency analyzer</span>
+        </div>
+      </div>
+
+      <div class="bento-card bento-chat">
+        <div class="bento-icon">💬</div>
+        <h3>AI Assistant</h3>
+        <p>Your 24/7 real estate co-pilot. Listing descriptions, buyer Q&amp;A, contract explanations, and open house scheduling.</p>
+        <div class="chat-demo">
+          <div class="chat-msg user">Write a listing for my 3BR/2BA in Austin, TX with a pool</div>
+          <div class="chat-msg ai">
+            <span class="ai-typing" id="aiTyping">✨ "Stunning 3BR/2BA Austin retreat featuring a resort-style pool, gourmet kitchen with quartz countertops, and sun-drenched open-plan living. Walking distance to top-rated schools and Barton Springs. The entertainer's dream you've been waiting for."</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento-card bento-map">
+        <div class="bento-icon">🗺️</div>
+        <h3>Map Search</h3>
+        <p>Buyers explore listings on an interactive map with school zone overlays, commute calculators, and walk scores.</p>
+        <div class="fake-map">
+          <div class="map-pin p1">🏡<span>$548K</span></div>
+          <div class="map-pin p2">🏡<span>$421K</span></div>
+          <div class="map-pin p3 active">🏡<span>$612K</span></div>
+          <div class="map-grid"></div>
+        </div>
+      </div>
+
+      <div class="bento-card bento-contract">
+        <div class="bento-icon">📝</div>
+        <h3>Contract AI</h3>
+        <p>Upload any contract and our AI translates legal jargon into plain English. Know exactly what you're signing.</p>
+        <div class="contract-demo">
+          <div class="contract-line"></div>
+          <div class="contract-line short"></div>
+          <div class="contract-line"></div>
+          <div class="contract-line medium"></div>
+          <div class="contract-arrow">↓ AI explains in plain English</div>
+          <div class="contract-explain">"This clause means the buyer can back out penalty-free if inspection reveals issues over $5,000."</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI VALUATION SPOTLIGHT -->
+<section id="ai-valuation">
+  <div class="container">
+    <div class="ai-split">
+      <div class="ai-split-text">
+        <div class="eyebrow">AI-Powered Precision</div>
+        <h2 class="sec-title">The Smartest<br/>Valuation Engine<br/>in Real Estate</h2>
+        <p>We pull live data from Zillow, Redfin, MLS databases, and ATTOM to give you a pricing recommendation you can trust — refreshed every 24 hours, not every 6 months.</p>
+        <ul class="ai-advantages">
+          <li>
+            <span class="adv-icon">📡</span>
+            <div>
+              <strong>Live Data Sources</strong>
+              <span>Zillow · Redfin · MLS · ATTOM · RentCast</span>
+            </div>
+          </li>
+          <li>
+            <span class="adv-icon">🔮</span>
+            <div>
+              <strong>Predictive Analytics</strong>
+              <span>30-day price trajectory & days-on-market forecast</span>
+            </div>
+          </li>
+          <li>
+            <span class="adv-icon">🏘️</span>
+            <div>
+              <strong>Neighborhood Intelligence</strong>
+              <span>School scores, walkability, crime stats, growth trends</span>
+            </div>
+          </li>
+          <li>
+            <span class="adv-icon">⚡</span>
+            <div>
+              <strong>Instant Results</strong>
+              <span>Full valuation report in under 60 seconds</span>
+            </div>
+          </li>
+        </ul>
+        <a href="#cta" class="btn-gold">Get My Free AI Valuation →</a>
+      </div>
+      <div class="ai-split-widget">
+        <div class="val-card">
+          <div class="val-head">
+            <span class="val-spark">✦</span>
+            AI Price Analysis
+            <span class="val-live"><span></span>Live</span>
+          </div>
+          <div class="val-addr">2847 Maple Grove Dr, Austin TX 78701</div>
+          <div class="val-price-row">
+            <div class="val-main">$548,000</div>
+            <div class="val-change up">▲ 2.3% MoM</div>
+          </div>
+          <div class="val-conf">
+            <div class="val-conf-bar"><div class="val-conf-fill" id="valConfFill"></div></div>
+            <span>88% Confidence Score</span>
+          </div>
+          <div class="val-range">
+            <div class="range-item low">
+              <span>Low</span>
+              <strong>$531,000</strong>
+            </div>
+            <div class="range-item rec">
+              <span>Recommended</span>
+              <strong>$548,000</strong>
+            </div>
+            <div class="range-item high">
+              <span>High</span>
+              <strong>$562,000</strong>
+            </div>
+          </div>
+          <div class="val-forecast">
+            <div class="vf-item">
+              <span>📅</span>
+              <div><small>Days to Offer</small><strong>~14 days</strong></div>
+            </div>
+            <div class="vf-item">
+              <span>👁</span>
+              <div><small>Weekly Views</small><strong>1,240</strong></div>
+            </div>
+            <div class="vf-item">
+              <span>🏘️</span>
+              <div><small>Comps Used</small><strong>24 homes</strong></div>
+            </div>
+          </div>
+          <div class="val-comps-label">Nearby Comparable Sales</div>
+          <div class="val-comps-list">
+            <div class="vc-item"><span>2801 Maple St</span><strong>$541,000</strong><span class="vc-ago">12 days ago</span></div>
+            <div class="vc-item"><span>2912 Oak Ave</span><strong>$552,000</strong><span class="vc-ago">18 days ago</span></div>
+            <div class="vc-item"><span>2755 Elm Dr</span><strong>$528,500</strong><span class="vc-ago">22 days ago</span></div>
+          </div>
+          <div class="val-cta-row">
+            <button class="val-btn">Full Report</button>
+            <button class="val-btn primary">List at This Price</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER SYSTEM -->
+<section id="offers">
+  <div class="container">
+    <div class="eyebrow">Offer Management</div>
+    <h2 class="sec-title">Compare Every Offer.<br/>Keep Every Dollar.</h2>
+    <p class="sec-sub">See all offers side-by-side with real net proceeds — not just asking prices. Counter, accept, or reject with one click.</p>
+    <div class="offer-table-wrap">
+      <div class="offer-table">
+        <div class="offer-table-head">
+          <div>Buyer</div>
+          <div>Offer Price</div>
+          <div>Financing</div>
+          <div>Contingencies</div>
+          <div>Net Proceeds</div>
+          <div>Action</div>
+        </div>
+        <div class="offer-row best">
+          <div class="or-buyer">
+            <div class="or-ava gold">JM</div>
+            <div><strong>James M.</strong><small>Cash Buyer · Pre-verified</small></div>
+          </div>
+          <div class="or-price">$542,000<span class="or-best-tag">Best</span></div>
+          <div><span class="or-tag green">All Cash</span></div>
+          <div><span class="or-tag green">None</span></div>
+          <div class="or-net gold">$536,820</div>
+          <div class="or-acts">
+            <button class="or-btn accept">Accept</button>
+            <button class="or-btn counter">Counter</button>
+          </div>
+        </div>
+        <div class="offer-row">
+          <div class="or-buyer">
+            <div class="or-ava purple">SR</div>
+            <div><strong>Sarah R.</strong><small>Conv. · Pre-approved</small></div>
+          </div>
+          <div class="or-price">$535,500</div>
+          <div><span class="or-tag blue">Conv. 20%</span></div>
+          <div><span class="or-tag yellow">Inspection</span></div>
+          <div class="or-net">$529,120</div>
+          <div class="or-acts">
+            <button class="or-btn accept">Accept</button>
+            <button class="or-btn counter">Counter</button>
+          </div>
+        </div>
+        <div class="offer-row">
+          <div class="or-buyer">
+            <div class="or-ava teal">TK</div>
+            <div><strong>Tom K.</strong><small>VA Loan · Pre-approved</small></div>
+          </div>
+          <div class="or-price">$540,000</div>
+          <div><span class="or-tag teal">VA Loan</span></div>
+          <div><span class="or-tag yellow">Appraisal</span></div>
+          <div class="or-net">$534,100</div>
+          <div class="or-acts">
+            <button class="or-btn accept">Accept</button>
+            <button class="or-btn counter">Counter</button>
+          </div>
+        </div>
+      </div>
+      <div class="offer-net-summary">
+        <div class="net-item">
+          <span>List Price</span><strong>$548,000</strong>
+        </div>
+        <div class="net-item">
+          <span>Best Offer</span><strong class="gold">$542,000</strong>
+        </div>
+        <div class="net-item">
+          <span>HomePilot Fee (1%)</span><strong>-$5,420</strong>
+        </div>
+        <div class="net-item">
+          <span>Title &amp; Closing</span><strong>-$1,200</strong>
+        </div>
+        <div class="net-divider"></div>
+        <div class="net-item total">
+          <span>Your Net Proceeds</span><strong class="gold">$535,380</strong>
+        </div>
+        <div class="net-vs">
+          vs. Traditional Agent: <span class="red">$514,900</span>
+          <strong class="gold">You save $20,480</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="eyebrow">Transparent Pricing</div>
+    <h2 class="sec-title">Pay a Fraction.<br/>Keep the Rest.</h2>
+    <p class="sec-sub">Traditional agents take 5–6%. We charge a flat fee or small closing percentage. You keep tens of thousands more.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="pc-tier">Starter</div>
+        <div class="pc-price">$99 <span>/listing</span></div>
+        <p>Get your home in front of buyers fast with everything you need to start.</p>
+        <ul>
+          <li>✓ Unlimited listing duration</li>
+          <li>✓ 20 photo uploads</li>
+          <li>✓ Buyer inquiry inbox</li>
+          <li>✓ Basic AI description</li>
+          <li>✓ Offer submission system</li>
+          <li>✓ Mobile-optimized listing</li>
+        </ul>
+        <a href="#cta" class="pc-btn">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="pc-ribbon">Most Popular</div>
+        <div class="pc-tier">Pro</div>
+        <div class="pc-price">$299 <span>/listing</span></div>
+        <p>The full AI-powered toolkit to maximize your sale price and speed.</p>
+        <ul>
+          <li>✓ Everything in Starter</li>
+          <li>✓ <strong>AI Home Valuation</strong></li>
+          <li>✓ <strong>Smart Buyer Matching</strong></li>
+          <li>✓ <strong>Offer Comparison Engine</strong></li>
+          <li>✓ <strong>AI Listing Description</strong></li>
+          <li>✓ <strong>AI Assistant Chatbot</strong></li>
+          <li>✓ Open House Scheduling</li>
+          <li>✓ Priority listing placement</li>
+          <li>✓ Contract AI Explainer</li>
+        </ul>
+        <a href="#cta" class="pc-btn featured">Start with Pro</a>
+      </div>
+      <div class="price-card">
+        <div class="pc-tier">Closing Only</div>
+        <div class="pc-price">1% <span>at close</span></div>
+        <p>Zero upfront cost. Only pay when you successfully close your sale.</p>
+        <ul>
+          <li>✓ All Pro features</li>
+          <li>✓ Contract support</li>
+          <li>✓ Closing coordination</li>
+          <li>✓ Title connection</li>
+          <li>✓ No fee if no sale</li>
+          <li>✓ Dedicated advisor</li>
+        </ul>
+        <a href="#cta" class="pc-btn">Contact Sales</a>
+      </div>
+    </div>
+    <div class="savings-bar">
+      <span class="sb-emoji">💰</span>
+      <span>On a <strong>$500,000</strong> home, traditional agents charge <strong>$25,000–$30,000</strong> in commissions.</span>
+      <span>HomePilot AI costs you just <strong class="gold">$299 or $5,000</strong>.</span>
+      <span>You save up to <strong class="gold">$25,000+</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="eyebrow">Real Stories</div>
+    <h2 class="sec-title">Sellers Who Kept<br/>Their Commission</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Sold my Austin home in 11 days. The AI valuation was spot-on — within $2,000 of what I got — and I saved <strong>$23,000</strong> in commissions. I'll never use a traditional agent again."</p>
+        <div class="testi-author">
+          <div class="ta-ava" style="background:#e8c96d;color:#0a0b0e;">MK</div>
+          <div>
+            <strong>Mike K.</strong>
+            <span>Austin, TX · Sold for $548K · Saved $23,000</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The offer comparison tool is incredible. I had <strong>4 offers in one week</strong>. I could see exactly which gave me the highest net proceeds. Accepted in 8 days. Absolutely seamless."</p>
+        <div class="testi-author">
+          <div class="ta-ava" style="background:#059669;">JL</div>
+          <div>
+            <strong>Jennifer L.</strong>
+            <span>Denver, CO · 8 days to close · Saved $18,200</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The AI wrote my listing description better than any agent I've ever worked with. Buyers told me the description sold them before they even saw photos. Closed above asking price."</p>
+        <div class="testi-author">
+          <div class="ta-ava" style="background:#7c3aed;">DC</div>
+          <div>
+            <strong>David C.</strong>
+            <span>Phoenix, AZ · 9 days · Sold above asking</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"As a first-time seller I was terrified. The AI Assistant answered every question I had — at 11pm! It explained my contract in plain English. <strong>Felt like having a lawyer on call 24/7.</strong>"</p>
+        <div class="testi-author">
+          <div class="ta-ava" style="background:#dc2626;">AM</div>
+          <div>
+            <strong>Amanda M.</strong>
+            <span>Seattle, WA · First-time seller · Saved $21,400</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="eyebrow">Questions</div>
+    <h2 class="sec-title">Frequently Asked</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Do I need a real estate license to use HomePilot AI? <span>+</span></button>
+        <div class="faq-a">No. HomePilot AI is a For Sale By Owner (FSBO) platform. Any homeowner can list their property directly without a real estate agent or license. We provide the tools to make the process as smooth as working with an agent — without the commission.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How accurate is the AI valuation? <span>+</span></button>
+        <div class="faq-a">Our AI valuation has a 92% accuracy rate within 3% of the final sale price, based on our historical data. We pull live data from Zillow, Redfin, MLS, and ATTOM Data to ensure you get the most current market information updated every 24 hours.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is HomePilot AI listed on MLS? <span>+</span></button>
+        <div class="faq-a">Our Pro and Closing plans include MLS integration through our licensed data partners, giving your listing maximum exposure to buyer's agents and platforms like Zillow and Realtor.com. The Starter plan gets listed on our platform and partner networks.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if I need legal or contract help? <span>+</span></button>
+        <div class="faq-a">Our AI Contract Explainer translates legal documents into plain English. For complex situations, we have a network of licensed real estate attorneys available at a flat hourly rate — always far less than a full agent commission.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can buyers use HomePilot AI too? <span>+</span></button>
+        <div class="faq-a">Yes! Buyers can create free accounts, set their search criteria, and get automatically matched with listings that meet their requirements. They can submit offers, ask the AI assistant questions, and communicate directly with sellers through our platform.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens if my home doesn't sell? <span>+</span></button>
+        <div class="faq-a">On the Starter and Pro plans, you keep your listing active for as long as you need at no extra cost. On the Closing Only plan, you owe nothing if the home doesn't sell. We also provide AI-powered suggestions to improve your listing's performance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <canvas id="ctaCanvas"></canvas>
+      <div class="cta-inner">
+        <div class="eyebrow" style="color:rgba(255,255,255,0.5);">Start Today — It's Free</div>
+        <h2>Ready to Sell on<br/>Your Own Terms?</h2>
+        <p>Enter your address below and get an AI-powered valuation instantly.<br/>No agent. No commission. Your home, your rules.</p>
+        <div class="cta-form-wrap">
+          <div class="cta-input-row">
+            <input type="text" id="ctaAddress" placeholder="Enter your property address..." class="cta-inp"/>
+            <button class="cta-submit" id="ctaSubmit">Get Free Valuation →</button>
+          </div>
+          <div class="cta-features">
+            <span>✓ Free forever</span>
+            <span>✓ No credit card</span>
+            <span>✓ Results in 60 seconds</span>
+            <span>✓ Cancel anytime</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg class="logo-hex" viewBox="0 0 40 46" fill="none">
+            <path d="M20 1L38 11.5V34.5L20 45L2 34.5V11.5L20 1Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M20 8L32 15V29L20 36L8 29V15L20 8Z" fill="currentColor" opacity="0.2"/>
+          </svg>
+          HomePilot<em>AI</em>
+        </a>
+        <p>The AI-powered FSBO platform that puts sellers in control and keeps money where it belongs — in your pocket.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="X">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="#">Seller Dashboard</a>
+          <a href="#">AI Valuation</a>
+          <a href="#">Buyer Matching</a>
+          <a href="#">Offer System</a>
+          <a href="#">AI Assistant</a>
+          <a href="#">Contract AI</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Blog</a>
+          <a href="#">Press</a>
+          <a href="#">Careers</a>
+          <a href="#">Investors</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Seller Guide</a>
+          <a href="#">Buyer Guide</a>
+          <a href="#">Pricing Calculator</a>
+          <a href="#">Market Reports</a>
+          <a href="#">Help Center</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Disclaimer</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 HomePilot AI, Inc. All rights reserved.</span>
+      <span>Not a licensed real estate broker. Information provided for educational purposes only.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
